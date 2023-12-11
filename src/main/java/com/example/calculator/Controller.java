@@ -6,43 +6,39 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/calculator")
 public class Controller {
     private final Logik logik;
 
     public Controller(Logik logik) {
         this.logik = logik;
     }
-
-    @GetMapping("/calculator")
+    @GetMapping("")
     public String HelloPeople() {
         return "Добро пожаловать в калькулятор!!!";
     }
 
-    @RequestMapping("/calculator/plus")
+    @GetMapping("/plus")
     public String Sum(@RequestParam int num1, @RequestParam int num2) {
         return num1 + " + " + num2 + " = " + logik.getSum(num1, num2);
     }
 
-    @RequestMapping("/calculator/minus")
+    @GetMapping("/minus")
     public String Difference(@RequestParam int num1, @RequestParam int num2) {
         return num1 + " - " + num2 + " = " + logik.getDifference(num1, num2);
     }
 
-    @RequestMapping("/calculator/multiply")
+    @GetMapping("/multiply")
     public String Multiplication(@RequestParam int num1, @RequestParam int num2) {
         return num1 + " * " + num2 + " = " + logik.getMultiplication(num1, num2);
 
     }
 
-    @RequestMapping("/calculator/divide")
-    public String Division(@RequestParam int num1, @RequestParam int num2) {
-        if (num2 == 0) {
-            return logik.Eror();
+    @GetMapping("/divide")
+    public String Division(@RequestParam int num1, @RequestParam int num2) throws DivisionNull {
 
+            return logik.getDivision(num1, num2);
 
-        } else {
-            return num1 + " / " + num2 + " = " + logik.getDivision(num1, num2);
-        }
     }
 
 }
