@@ -6,7 +6,7 @@ public interface Logik  {
     int getDifference(int num1,int num2);
     int getMultiplication(int num1,int num2);
 
-    String getDivision(int num1,int num2) throws DivisionNull;
+    int getDivision(int num1,int num2) throws DivisionNull;
 
 
 }

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 public class DivisionNull extends IllegalAccessException{
-    public DivisionNull(String message) {
-        super(message);
+    public DivisionNull() {
+        super();
     }
 }

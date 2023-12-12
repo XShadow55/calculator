@@ -37,7 +37,7 @@ public class Controller {
     @GetMapping("/divide")
     public String Division(@RequestParam int num1, @RequestParam int num2) throws DivisionNull {
 
-            return logik.getDivision(num1, num2);
+            return num1 + " / " + num2 + " = " + logik.getDivision(num1, num2);
 
     }
 

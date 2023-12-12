@@ -22,19 +22,13 @@ public class LogikCalculator implements Logik{
         return num1*num2;
     }
 
-
-    public int division(int num1,int num2)  {
-            return num1 / num2;
-
-    }
-
     @Override
-    public String getDivision(int num1, int num2) throws DivisionNull {
+    public int getDivision(int num1, int num2) throws DivisionNull {
         if (num2 == 0){
-            throw new DivisionNull("На ноль делить нельзя!");
+            throw new DivisionNull();
         }
         else {
-            return num1 + " / " + num2 + " = " + division(num1, num2);
+            return num1 / num2;
         }
     }
 }

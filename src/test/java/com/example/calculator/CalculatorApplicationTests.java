@@ -17,24 +17,33 @@ class CalculatorApplicationTests {
 	@MethodSource("paramsForTestSumma")
 	void summaTest() {
 		int result = calculator.getSum(2,4);
+		Assertions.assertNotNull(result);
+		Assertions.assertDoesNotThrow(() -> result );
 	}
 	@ParameterizedTest
 	@MethodSource("paramsForTestSumma")
 	void multiplyTest() {
 		int result = calculator.getMultiplication(2,4);
+		Assertions.assertNotNull(result);
+		Assertions.assertDoesNotThrow(() -> result );
 
 	}
 	@ParameterizedTest
 	@MethodSource("paramsForTestSumma")
 	void differenceTest() {
 		int result = calculator.getDifference(2,4);
+		Assertions.assertNotNull(result);
+		Assertions.assertDoesNotThrow(() -> result );
+
 
 	}
 
 	@ParameterizedTest
 	@MethodSource("paramsForTestSumma")
 	void divisionTest() throws DivisionNull {
-		String  result = calculator.getDivision(2,4);
+		int  result = calculator.getDivision(2,4);
+		Assertions.assertNotNull(result);
+		Assertions.assertDoesNotThrow(() -> result );
 
 	}
 
