@@ -23,11 +23,12 @@ public class LogikCalculator implements Logik{
     }
 
     @Override
-    public int getDivision(int num1,int num2) {
-        return num1/num2;
-    }
-    @Override
-    public String Eror(){
-        return "На ноль делить нельзя";
+    public int getDivision(int num1, int num2) throws DivisionNull {
+        if (num2 == 0){
+            throw new DivisionNull();
+        }
+        else {
+            return num1 / num2;
+        }
     }
 }
