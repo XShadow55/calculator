@@ -14,36 +14,43 @@ class CalculatorApplicationTests {
 	private final LogikCalculator calculator = new LogikCalculator();
 
 	@ParameterizedTest
-	@MethodSource("paramsForTestSumma")
-	void summaTest() {
-		int result = calculator.getSum(2,4);
+	@MethodSource("paramsForTest")
+	void summaTest(int a,int b) {
+		int result = calculator.getSum(a,b);
+
 		Assertions.assertNotNull(result);
 		Assertions.assertDoesNotThrow(() -> result );
+		int expected = a+b;
+		Assertions.assertEquals(result,expected);
 	}
 	@ParameterizedTest
-	@MethodSource("paramsForTestSumma")
-	void multiplyTest() {
-		int result = calculator.getMultiplication(2,4);
+	@MethodSource("paramsForTest")
+	void multiplyTest(int a,int b) {
+		int result = calculator.getMultiplication(a,b);
 		Assertions.assertNotNull(result);
 		Assertions.assertDoesNotThrow(() -> result );
+		int expected = a*b;
+		Assertions.assertEquals(result,expected);
 
 	}
 	@ParameterizedTest
-	@MethodSource("paramsForTestSumma")
-	void differenceTest() {
-		int result = calculator.getDifference(2,4);
+	@MethodSource("paramsForTest")
+	void differenceTest(int a,int b) {
+		int result = calculator.getDifference(a,b);
 		Assertions.assertNotNull(result);
 		Assertions.assertDoesNotThrow(() -> result );
-
-
+		int expected = a-b;
+		Assertions.assertEquals(result,expected);
 	}
 
 	@ParameterizedTest
-	@MethodSource("paramsForTestSumma")
-	void divisionTest() throws DivisionNull {
-		int  result = calculator.getDivision(2,4);
+	@MethodSource("paramsForTest")
+	void divisionTest(int a,int b) throws DivisionNull {
+		int  result = calculator.getDivision(a,b);
 		Assertions.assertNotNull(result);
 		Assertions.assertDoesNotThrow(() -> result );
+		int expected = a/b;
+		Assertions.assertEquals(result,expected);
 
 	}
 
@@ -52,18 +59,10 @@ class CalculatorApplicationTests {
 		Assertions.assertThrows(IllegalAccessException.class,() ->calculator.getDivision(1,0));
 
 	}
-	public static Stream<Arguments> paramsForTestSumma(){
+	public static Stream<Arguments> paramsForTest(){
 		return Stream.of(Arguments.of(3,6),Arguments.of(65,8));
 	}
-	public static Stream<Arguments> paramsForTestMultiply(){
-		return Stream.of(Arguments.of(3,6),Arguments.of(65,8));
-	}
-	public static Stream<Arguments> paramsForTestDifference(){
-		return Stream.of(Arguments.of(3,6),Arguments.of(65,8));
-	}
-	public static Stream<Arguments> paramsForTestDivision(){
-		return Stream.of(Arguments.of(3,6),Arguments.of(65,8));
-	}
+
 
 
 }
